@@ -7,8 +7,11 @@ Fases del Desrollo
 /* Base del Sistema Web y Movil																   */
 /***********************************************************************************************/
 
------------------------------- Preparación de la BD ---------------------------------------------
+------------------------------ 0. Preparación de la BD ---------------------------------------------
 0.0. Diseño de la Base de Datos
 0.1. Creación de la Entidad Relación de la BD
 0.2. Exportación de la estructura e importanción mediante SQL
 
+----------------- 1. Conexion a la BD ---------------------------------------
+1.1. Conexion con MySQL
+	inc/conn.php
