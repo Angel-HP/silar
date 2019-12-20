@@ -1,13 +1,32 @@
 <?php
-$host_BD = "localhost";
-$user_BD = "dev";
-$pass_BD = "desarrollo";
-$name_BD = "silar";
+ class Connect {
 
-$conn = new mysqli($host_BD, $user_BD, $pass_BD, $name_BD);
-if($conn){
-	echo "Conexion Exitosa";
-}else{
-	echo "No se pudo conectar  a la BD";
+
+	public static function conn(){
+		try {
+
+			
+			$cn = new PDO(
+			  "mysql:host=localhost;dbname=silar", 
+			  "dev", 
+			  "desarrollo", 
+			  array(
+			    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+			    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
+			  )
+			);
+
+
+			//echo "Conexion Exitosa";				
+			return $cn;
+
+		} catch(PDOException $ex) {
+			die($ex->getMessage());
+		  }
+	}//Connection
+
+	
 }
+
+Connect::conn();
 ?>
