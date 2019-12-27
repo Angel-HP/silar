@@ -63,6 +63,8 @@ class UserDAO extends Connect {
 
 				$login = true;
 				return $login;
+				//cerramos la conexion activa con la BD
+				$self::disconnect();
 			}
 
 		}

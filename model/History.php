@@ -6,7 +6,7 @@ http://mikeangstadt.name/projects/getter-setter-gen/
 Class History {
 	private $id_history;
 	private $ip;
-    private $data_access; 
+    private $date_access; 
     private $time_in;
     private $time_out;
 
@@ -26,11 +26,11 @@ Class History {
 		$this->ip = $ip;
 	}
 
-	public function getData_access(){
+	public function getDate_access(){
 		return $this->data_access;
 	}
 
-	public function setData_access($data_access){
+	public function setDate_access($data_access){
 		$this->data_access = $data_access;
 	}
 
