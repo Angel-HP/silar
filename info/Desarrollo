@@ -15,3 +15,14 @@ Fases del Desrollo
 ----------------- 1. Conexion a la BD ---------------------------------------
 1.1. Conexion con MySQL
 	inc/conn.php
+1.2. Conexion con mySQL - POO
+
+----------------- 2. Funcionalidad de Login-----------------------------------
+2.1. Crear el Front End del Login
+	index.php
+2.2. Vinculación de librerias CSS, JS e Imagenes
+	/assets/css/*, /assets/js/*, /assets/img/*
+
+----------------- 3. Acceso a la BD  -----------------------------------
+3.1. 
+
