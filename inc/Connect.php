@@ -28,5 +28,5 @@
 	
 }
 
-Connect::conn();
+//Connect::conn();
 ?>

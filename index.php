@@ -15,7 +15,7 @@
   </head>
 
   <body class="text-center">
-    <form class="form-signin" id="loginForm" action="view/validaCode.php" method="POST" role="form">
+    <form class="form-signin" id="loginForm" action="inc/validaCode.php" method="POST" role="form">
       <img class="mb-4" src="assets/img/favicons/favicon.ico" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Ingrese sus credenciales</h1>
       <label for="inputUser" class="sr-only">Usuario</label>
