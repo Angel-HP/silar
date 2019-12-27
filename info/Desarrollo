@@ -24,8 +24,14 @@ Fases del Desrollo
 	/assets/css/*, /assets/js/*, /assets/img/*
 
 ----------------- 3. Acceso a la BD  -----------------------------------
-3.1. Creamos el modelo de Acceso a datos de la BD de los usurios con el login de acceso
+----------------- 3.1 Objeto de Acceso a Datos del Usuario---------------------------------
+3.1.1. Creamos el modelo de Acceso a datos de la BD de los usurios con el login de acceso
 	model/User.php
-3.2. Creamos el Data Access Object DAO del Usuario -> UserDAO, con la conexion y desconexion a la BD
+3.1.2 Creamos el Data Access Object DAO del Usuario -> UserDAO, con la conexion y desconexion a la BD
 	data/UserDAO.php
 
+----------------- 3.2 Contruir el Controlador de Login de User  --------------------------------
+3.2.1. Crear el Controlador del Usuario con la accion (metodo) [login]
+	controller/UserController.php
+
+	
