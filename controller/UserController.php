@@ -20,5 +20,13 @@ class UserController{
 		*/
 		return UserDAO::login($obj_user);
 	}
+	public function getUser($user, $pass){
+		$obj_user = new User();
+
+		$obj_user->getUser($user);
+		$obj_user->getUser($pass);
+
+		return UserDAO::getUser($obj_user);
+	}
 
 }
