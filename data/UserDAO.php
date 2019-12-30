@@ -71,8 +71,41 @@ class UserDAO extends Connect {
 		//En caso de que sea Negativo retornamos la bandera a negativo
 		return false;
 		
+	}//Metodo Login
 
-	}
+	public static function getUser($user){
+
+		$query = "SELECT id_user, name, user, pass, email FROM users WHERE
+		user=':user' and pass=':pass'";
+
+		self::getConection();
+
+		$result = self::$cnx->prepare($query);
+
+		$user_bd = $user->getUser_name();
+		$result->bindParam(":user", $user_bd);
+
+		$pass_bd = $user->getUser_pass();
+		$result->bindParam(":pass", $pass_bd);
+
+		$result->execute();
+
+		$data = $result->fetch();
+
+		//Para enviar la información a la validacion y visualizacion de datos del usuario autentificado
+		//lo cargaremos desde el objeto del usuario a traves de su instancia de objeto de la entidad usuarios.
+		$user->setId_user($data["id_user"]);
+		$user->setName($data["name"]);
+		$user->setUser($data["user"]);
+		$user->setPass($data["pass"]);
+		$user->setEmail($data["user_email"]);
+
+		//Retornamos los vaores al objeto User
+		return $user;
+
+
+
+	}//Metodo getUser
 
 
 
