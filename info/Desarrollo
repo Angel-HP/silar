@@ -63,7 +63,23 @@ Fases del Desrollo
 	help/helper.php
 3.3.2. Cambiar la bandera de code = true desde login y se agregaron los CSS y JS necesarios
 	index.php
-------------------4. Validación del Ingreso de Usuario Registrado -----------------
+3.3.3. Modificacion del modelo en los campos user y pass => user_name uuser_pass, agregando md5
+	model/User.php
+------------------3. 4. Validación del Ingreso de Usuario Registrado -----------------
+3.4.1. Se agregaron los librerias de validacion de JS
+	assets/css/overhang.css
+	assets/js/jquery.js
+	assets/js/jquery-ui.js
+3.4.2. Se creo el JS de captura de respuesta de la validacion del login
+	assets/js/app.js
+3.4.3. Se creo una nueva conexion para actualizacion del historial
+	inc/ConnectHistory.php
+3.4.4. Creacion de la clase Disconnect
+	inc/Disconnect.php
+3.4.5. Creacion de redireccion del menu de usuario y salida del sistema
+	view/logged_in.php
+	view/sigout.php
+					
 
 
 
