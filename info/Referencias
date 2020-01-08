@@ -5,4 +5,24 @@ https://victorroblesweb.es/2013/11/18/tutorial-mvc-en-php-nativo/
 Evitar Inyeccion de SQL
 https://es.stackoverflow.com/questions/18232/c%C3%B3mo-evitar-la-inyecci%C3%B3n-sql-en-php
 
+Bootstrap
+https://getbootstrap.com/
+
+Un generador de getter y setters de PHP lo utilizaremos con:
+http://mikeangstadt.name/projects/getter-setter-gen/
+
+Libreria jQuery OverHang para desplegar notificaciones instantaneas
+http://paulkr.github.io/overhang.js/
+https://paulkr.com/
+
+Probelamas con Js (Uncaught ReferenceError: $ is not defined)
+https://javarevisited.blogspot.com/2016/04/3-ways-to-solve-jquery-uncaught-reference-error-is-not-defined.html
+
+jQuery
+https://jquery.com/
+
+jQuery UI  User Interfaz
+https://jqueryui.com/
+
+
 
