@@ -10,11 +10,11 @@ Class User {
 	private $id_status_user;
 	private $id_history;
 	private $name;
-	private $user; 
-	private $pass;
-	private $tel;
-	private $email;
-	private $position;
+	private $user_name; 
+	private $user_pass;
+	private $user_tel;
+	private $user_email;
+	private $user_position;
 	private $online;
 
 	public function getId_user(){
@@ -57,44 +57,44 @@ Class User {
 		$this->name = $name;
 	}
 
-	public function getUser(){
-		return $this->user;
+	public function getUser_name(){
+		return $this->user_name;
 	}
 
-	public function setUser($user){
-		$this->user = $user;
+	public function setUser_name($user_name){
+		$this->user_name = $user_name;
 	}
 
-	public function getPass(){
-		return $this->pass;
+	public function getUser_pass(){
+		return $this->user_pass;
 	}
 
-	public function setPass($pass){
-		$this->pass = $pass;
+	public function setUser_pass($user_pass){
+		$this->user_pass = md5($user_pass);
 	}
 
-	public function getTel(){
-		return $this->tel;
+	public function getUser_tel(){
+		return $this->user_tel;
 	}
 
-	public function setTel($tel){
-		$this->tel = $tel;
+	public function setUser_tel($user_tel){
+		$this->user_tel = $user_tel;
 	}
 
-	public function getEmail(){
-		return $this->email;
+	public function getUser_email(){
+		return $this->user_email;
 	}
 
-	public function setEmail($email){
-		$this->email = $email;
+	public function setUser_email($user_email){
+		$this->user_email = $user_email;
 	}
 
-	public function getPosition(){
-		return $this->position;
+	public function getUser_position(){
+		return $this->user_position;
 	}
 
-	public function setPosition($position){
-		$this->position = $position;
+	public function setUser_position($user_position){
+		$this->user_position = $user_position;
 	}
 
 	public function getOnline(){
