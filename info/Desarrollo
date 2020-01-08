@@ -49,6 +49,21 @@ Fases del Desrollo
 	controler/UserController.php
 3.2.9. Se definio el metodo de obtencion de datos del ultimo usuario que acceso
 	data/UserDAO.php
+3.2.10. Define el metodo del controldor updateHistory 
+	inc/ValidaCode.php
+3.2.11. Definir el controlador del metodo Update History
+	controller/HistoryController.php
+3.2.12. Definir el Objeto de Acceso a Datos de actualizacion de acceso
+	data/HistoryController.php		
+3.2.13. Se define el metodo getUser de UserController
+	controller/UserController.php
+
+----------------- 3.3. Validacion del Usuario	 ---------------------
+3.3.1. Se crea la ayuda de validacion de usuario y clave de acceso
+	help/helper.php
+3.3.2. Cambiar la bandera de code = true desde login y se agregaron los CSS y JS necesarios
+	index.php
+------------------4. Validación del Ingreso de Usuario Registrado -----------------
 
 
 
