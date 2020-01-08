@@ -9,4 +9,6 @@ function validate_field($field){
 	$field = trim($field);
 	$field = stripcslashes($field);
 	$field = htmlspecialchars($field);
+
+	return $field;
 }
