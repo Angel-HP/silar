@@ -13,4 +13,13 @@ class HistoryController {
 		return HistoryDAO::regHistory($obj_history);
 
 	}
+	public function updateHistory($idUser){
+		$obj_history = new History;
+
+		$obj_history->setId_history($idUser);
+
+		return HistoryDAO::updateHistory($obj_history);
+
+	}
+
 }
