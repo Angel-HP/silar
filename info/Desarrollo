@@ -79,6 +79,12 @@ Fases del Desrollo
 3.4.5. Creacion de redireccion del menu de usuario y salida del sistema
 	view/logged_in.php
 	view/sigout.php
+3.4.6. Usuario on line metodo changeIn()
+	controller/userController.php
+	data/UserDAO.php
+	inc/validaCode.php
+	
+
 					
 
 

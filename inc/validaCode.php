@@ -52,14 +52,14 @@ if(isset($_POST["user"]) && isset($_POST["pass"])){
 		$idUser = $user->getId_user();
 
 		//echo $idUser;
-
+		$idUserOnline = $user->getId_user();
 		
 		//Actualizar en la tabla Usuarios el identificador del historial del ultimo acceso
 		$history = HistoryController::updateHistory($idUser);
 
 		//Despues de haber ingresado al sistema, el estatus del usuario cambie a 1 
 		//en el campo 'online' de la bd en la tabla users
-		//$online = UserController::changeIn($idUser);
+		$online = UserController::changeIn($idUserOnline);
 		//UserController::changeIn($idUser);
  
 		//Crear nuestras variables de session
