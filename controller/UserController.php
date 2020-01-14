@@ -44,16 +44,19 @@ class UserController{
 
 		return UserDAO::changeIn($obj_user);
 	
-	/*public function changeOut($iduser){
+	}
+	
+	public function changeOut($iduser){
 		$obj_user = new User();
 
 		$obj_user->setId_user($iduser);
 
-		return UserDao::changeOut($obj_user);*/
+		return UserDao::changeOut($obj_user);
+
 	}
 	
 
-	}
+	}//Class UserController
 
 	
 

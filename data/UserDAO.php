@@ -159,11 +159,11 @@ class UserDAO extends Connect {
 
 	}//Metodo ChangeIn
 
-   /*public static function changeOut($user){
+   public static function changeOut($user){
 
-		$iduser = $user->getId_user();
+		$idUser = $user->getId_user();
 
-		$updateOut = "UPDATE `users` SET `online` = '0' WHERE session_destroy()";
+		$updateOut = "UPDATE `users` SET `online` = '0' WHERE `users`.`id_user` = '$idUser'";
 
 		self::getConnection();
 
@@ -181,7 +181,7 @@ class UserDAO extends Connect {
 			return false;
 		}
 
-	}//Metodo ChangeOut*/
+	}//Metodo ChangeOut
 
 }
 

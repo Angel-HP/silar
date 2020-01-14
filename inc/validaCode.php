@@ -61,7 +61,7 @@ if(isset($_POST["user"]) && isset($_POST["pass"])){
 		//en el campo 'online' de la bd en la tabla users
 		$online = UserController::changeIn($idUserOnline);
 		//UserController::changeIn($idUser);
-        /*$online = UserController::changeOut($iduserOnline);*/
+        
 		//Crear nuestras variables de session
 				
 		$_SESSION["user"] = array (
@@ -73,6 +73,9 @@ if(isset($_POST["user"]) && isset($_POST["pass"])){
 				"id_priv"		=> $user->getId_Priv(),
 				"op"      		=> "false"
 							);//$_SESSION
+
+		//  Al definir la variable de sesion								el usar la variable de session
+		//$_SESSION["user"] = array ("id_user" => $user->getId_user())  == $_SESSION["user"]["id_user"];
 
 		$result = array(
 			"status" => "true"

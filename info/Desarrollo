@@ -84,6 +84,11 @@ Fases del Desrollo
 	data/UserDAO.php
 	inc/validaCode.php
 	
+------------------4. Salida del sistema -----------------	
+4.1. Salir del sistema
+	view/sigout.php
+	controller/userController.php
+	data/UserDAO.php
 
 					
 
