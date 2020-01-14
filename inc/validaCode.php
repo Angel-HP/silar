@@ -61,7 +61,7 @@ if(isset($_POST["user"]) && isset($_POST["pass"])){
 		//en el campo 'online' de la bd en la tabla users
 		$online = UserController::changeIn($idUserOnline);
 		//UserController::changeIn($idUser);
- 
+        /*$online = UserController::changeOut($iduserOnline);*/
 		//Crear nuestras variables de session
 				
 		$_SESSION["user"] = array (
