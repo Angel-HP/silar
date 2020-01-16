@@ -16,8 +16,6 @@
 
     <!-- Se incluye la referencia CSS de la libreria overHang.js -->
     <!-- <link rel="stylesheet" type="text/css" href="../assets/css/overhang.min.css" />  -->
-      
-
   </head>
 
   <body>
@@ -79,6 +77,9 @@ if(isset($_SESSION['user'])){
 				}
 
 				?>
+				<?php
+                 header('Location: menuPrip.php');
+                ?>
 
 				<p>
 					<a href="signout.php" class="btn btn-primary btn-lg">Cerrar Sesión</a>
@@ -90,7 +91,7 @@ if(isset($_SESSION['user'])){
 </div><!-- /.container -->  
 <?php
 }else{
-  echo '<script>location.href = "../index.php"</script>'; 
+  echo '<script>location.href = "../index.php"</script>';
 }
 
 ?>
