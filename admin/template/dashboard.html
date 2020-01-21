@@ -30,7 +30,7 @@
   <link href="..template/dashboiard_files/material-dashboard.css" rel="stylesheet">
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../template/dashboard_files/demo.css" rel="stylesheet">
-<script type="text/javascript" charset="UTF-8" src="dashboiard_files/common.js"></script><script type="text/javascript" charset="UTF-8" src="dashboiard_files/util.js"></script></head>
+<script type="text/javascript" charset="UTF-8" src="../template/dashboiard_files/common.js"></script><script type="text/javascript" charset="UTF-8" src="../template/dashboiard_files/util.js"></script></head>
 
 <body class="dark-edition">
   <div class="wrapper ">
@@ -633,22 +633,22 @@
         <li class="header-title">Images</li>
         <li>
           <a class="img-holder switch-trigger" href="javascript:void(0)">
-            <img src="dashboiard_files/sidebar-1.jpg" alt="">
+            <img src="../template/dashboard_files/sidebar-1.jpg" alt="">
           </a>
         </li>
         <li class="active">
           <a class="img-holder switch-trigger" href="javascript:void(0)">
-            <img src="dashboiard_files/sidebar-2.jpg" alt="">
+            <img src="../template/dashboard_files/sidebar-2.jpg" alt="">
           </a>
         </li>
         <li>
           <a class="img-holder switch-trigger" href="javascript:void(0)">
-            <img src="dashboiard_files/sidebar-3.jpg" alt="">
+            <img src="../template/dashboard_files/sidebar-3.jpg" alt="">
           </a>
         </li>
         <li>
           <a class="img-holder switch-trigger" href="javascript:void(0)">
-            <img src="dashboiard_files/sidebar-4.jpg" alt="">
+            <img src="../template/dashboard_files/sidebar-4.jpg" alt="">
           </a>
         </li>
         <li class="button-container">
@@ -679,23 +679,23 @@
     </div>
   </div>
   <!--   Core JS Files   -->
-  <script src="dashboiard_files/jquery.js"></script>
-  <script src="dashboiard_files/popper.js"></script>
-  <script src="dashboiard_files/bootstrap-material-design.js"></script>
-  <script src="dashboiard_files/default-passive-events.js"></script>
-  <script src="dashboiard_files/perfect-scrollbar.js"></script>
+  <script src="../template/dashboard_files/jquery.js"></script>
+  <script src="../template/dashbard_files/popper.js"></script>
+  <script src="../template/dashoard_files/bootstrap-material-design.js"></script>
+  <script src="../template/dashboard_files/default-passive-events.js"></script>
+  <script src="../template/dashboard_files/perfect-scrollbar.js"></script>
   <!-- Place this tag in your head or just before your close body tag. -->
-  <script async="" defer="defer" src="dashboiard_files/buttons.js"></script>
+  <script async="" defer="defer" src="../template/dashboard_files/buttons.js"></script>
   <!--  Google Maps Plugin    -->
-  <script src="dashboiard_files/js"></script>
+  <script src="../template/dashboard_files/js"></script>
   <!-- Chartist JS -->
-  <script src="dashboiard_files/chartist.js"></script>
+  <script src="../template/dashboard_files/chartist.js"></script>
   <!--  Notifications Plugin    -->
   <script src="dashboiard_files/bootstrap-notify.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="dashboiard_files/material-dashboard.js"></script>
+  <script src="../template/dashboard_files/material-dashboard.js"></script>
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-  <script src="dashboiard_files/demo.js"></script>
+  <script src="../template/dashboard_files/demo.js"></script>
   <script>
     $(document).ready(function() {
       $().ready(function() {
@@ -708,7 +708,7 @@
         $sidebar_responsive = $('body > .navbar-collapse');
 
         window_width = $(window).width();
-
+        }
         $('.fixed-plugin a').click(function(event) {
           // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
           if ($(this).hasClass('switch-trigger')) {
