@@ -55,8 +55,8 @@ if(isset($_SESSION['user'])){
 					<p>Panel de Control | <span class="label label-info">Redirigiendo al menu de administrador...</span></p>
 					<?php
 					//echo"<meta HTTP-EQUIV='Refresh' CONTENT='2; URL=administrador.php'<head/>";
-					//header("location:../admin/"); 
-					//$_SESSION["user"]["code"] = "false";
+					echo "SESSION_id: " . $_SESSION["user"]["id_priv"]; //Admin -> $id_priv ="1"
+					header("location:../admin/"); 
 					
 
 				}/*if($_SESSION["user"]["id_priv"] > 1 && $_SESSION["user"]["id_priv"] < 9 ){
@@ -72,13 +72,15 @@ if(isset($_SESSION['user'])){
 					?>
 					<p>Panel de Control | <span class="label label-info">Redirigiendo a un menu desconocido...</span></p>
 					<?php
-					//echo"<meta HTTP-EQUIV='Refresh' CONTENT='2; URL=usuario.php'<head/>";
-					//header("location:user/"); 
+
+					echo "SESSION_id: " . $_SESSION["user"]["id_priv"];
+					//echo"<meta HTTP-EQUIV='Refresh' CONTENT='4; URL=../dev/'<head/>";
+					header("location:../dev/"); //Dev -> $id_priv ="2"
 				}
 
 				?>
 				<?php
-                 header('Location: menuPrip.php');
+                 //header('Location: menuPrip.php');
                 ?>
 
 				<p>
