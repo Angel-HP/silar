@@ -83,9 +83,9 @@ if(isset($_SESSION['user'])){
                  //header('Location: menuPrip.php');
                 ?>
 
-				<p>
+				<!--<p>
 					<a href="signout.php" class="btn btn-primary btn-lg">Cerrar Sesión</a>
-				</p>
+				</p> -->
 			</div>
 		</div>
 	</div>
@@ -93,7 +93,7 @@ if(isset($_SESSION['user'])){
 </div><!-- /.container -->  
 <?php
 }else{
-  echo '<script>location.href = "../index.php"</script>';
+  //echo '<script>location.href = "../index.php"</script>';
 }
 
 ?>
