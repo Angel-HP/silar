@@ -183,5 +183,38 @@ class UserDAO extends Connect {
 
 	}//Metodo ChangeOut
 
+	//Listar Usuarios
+	public static function listUser($user){
+
+		$query = "SELECT id_user, name, user_name FROM users";		
+
+		self::getConnection();
+
+		$result = self::$cnx->prepare($query);
+
+
+
+		$result->execute();
+
+		$data = $result->fetch();
+       
+
+		$user = new User();
+		
+		$user->setId_user($data["id_user"]);
+		$user->setName($data["name"]);
+		$user->setUser_name($data["user_name"]);
+
+		
+		self::disconnect();
+
+		//Retornamos los vaores al objeto User
+		return $user;
+
+
+
+	}//Metodo getUser
+
+
 }
 

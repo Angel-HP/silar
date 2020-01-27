@@ -54,9 +54,21 @@ class UserController{
 		return UserDao::changeOut($obj_user);
 
 	}
+
+
+	//Listar Usuarios
+	public function listUser(){
+		$obj_user = new User();
+
+		return UserDAO::listUser($obj_user);
+	}
+
+
+
 	
 
 	}//Class UserController
 
+	
 	
 

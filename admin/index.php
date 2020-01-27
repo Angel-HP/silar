@@ -1,4 +1,8 @@
 <?php
+
+include "sql/User.php";
+
+
 require "inc/head.html";
 ?>
 <?php
@@ -12,7 +16,7 @@ require "inc/navbar.html";
 ?>
       <!-- End Navbar -->
 <?php
-require "inc/maincontent.html";
+require "inc/maincontent.php";
 ?>   
 </div>
 
