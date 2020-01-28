@@ -105,10 +105,11 @@
 <?php
 
 
-$query = "SELECT id_user as ID, name, user_name FROM users";
+//$query = "SELECT id_user as ID, name, user_name FROM users";
 $params = "";
 
-User::getTableUsers($query, $params);
+//UserDAO::getTableUsers($params);
+UserController::getTableUsers($params);
 
 
 ?>  

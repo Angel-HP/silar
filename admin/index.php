@@ -1,7 +1,8 @@
 <?php
 
-include "sql/User.php";
-
+//include "sql/User.php";
+//include '../data/UserDAO.php';
+include '../controller/UserController.php';
 
 require "inc/head.html";
 ?>

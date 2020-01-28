@@ -57,10 +57,12 @@ class UserController{
 
 
 	//Listar Usuarios
-	public function listUser(){
+	public function getTableUsers($user){
 		$obj_user = new User();
 
-		return UserDAO::listUser($obj_user);
+		//$obj_user->setId_user($user);
+
+		return UserDAO::getTableUsers($obj_user);
 	}
 
 
