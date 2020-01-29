@@ -112,6 +112,11 @@ $params = "";
 UserController::getTableUsers($params);
 
 
+//modal
+include 'modalGeneral.php';
+
+
+
 ?>  
 
 
