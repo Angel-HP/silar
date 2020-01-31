@@ -268,7 +268,7 @@ class UserDAO extends Connect {
 			/*$detail = '<a class="btn btn-primary btn-sm" href="action.php?a=4&b='. $id .'">Detalles de ' . $data["Nombre"] . '</a>';	*/
 
 
-			$detail = '<button type="button" class="btn btn-primary detail" value="' . $id . '" data-toggle="tooltip" data-placement="top" title="Detalle"><span class="glyphicon glyphicon-screenshot">' . $data["ID"] .'</span> </button>';
+			$detail = '<button type="button" class="btn btn-primary detail" value="' . $id . '" data-toggle="tooltip" data-placement="top" title="Detalle"><span class="glyphicon glyphicon-screenshot"> Ver  ' . $data["ID"] .'</span> </button>';
 
 			echo '<td class="text-center">' . $detail . '</td>';
 
