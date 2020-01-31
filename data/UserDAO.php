@@ -183,5 +183,124 @@ class UserDAO extends Connect {
 
 	}//Metodo ChangeOut
 
+	//Listar Usuarios
+	public static function listUser($user){
+
+		$query = "SELECT id_user, name, user_name FROM users";		
+
+		self::getConnection();
+
+		$result = self::$cnx->prepare($query);
+
+
+
+		$result->execute();
+
+		$data = $result->fetch();
+       
+
+		$user = new User();
+		
+		$user->setId_user($data["id_user"]);
+		$user->setName($data["name"]);
+		$user->setUser_name($data["user_name"]);
+
+		
+		self::disconnect();
+
+		//Retornamos los vaores al objeto User
+		return $user;
+
+
+	}//Metodo getUser
+
+
+	public static function getTableUsers($action){
+
+		$query = "SELECT id_user as ID, name as Nombre, user_name as Usuario FROM users";
+
+		//Establezco la conexion con la BD
+		self::getConnection();
+
+		//Preparo la sentencia SQL
+		$result = self::$cnx->prepare($query);
+
+		//Se ejecuta la consulta
+		$result->execute();
+
+		//Se obtienen el numero de filas y el numero de columnas
+		$rows = $result->rowCount();
+		$cols = $result->columnCount();
+
+		//echo "Filas: " . $rows;
+		/*echo "<br/>";
+		echo "Columnas: " . $cols;*/
+
+		//Si existen datos en la tabla
+		if($rows > 0){
+			echo '<table class="table">';
+			echo '<thead class=" text-primary">
+			<tr>';
+
+			foreach(range(0, $result->columnCount() - 1) as $column_index){
+				$meta[] = $result->getColumnMeta($column_index);
+			}
+
+			for ($i=0; $i < $cols; $i++){
+				echo '<th>' . $meta[$i]["name"] . '</td>';	
+			}       		
+			echo '<th style="text-align:center;">Acción</th>';
+
+			echo '</tr>
+			</thead>
+			<tbody>';
+
+
+			for($filas = 0; $filas < $rows; $filas++){
+				$data = $result->fetch();
+				echo '<tr>';
+
+				for($columns = 0; $columns < $cols; $columns++){
+					echo '<td>' . $data[$columns] .'</td>';
+				}
+
+			$id = $data["ID"];
+			/*$detail = '<a class="btn btn-primary btn-sm" href="action.php?a=4&b='. $id .'">Detalles de ' . $data["Nombre"] . '</a>';	*/
+
+
+			$detail = '<button type="button" class="btn btn-primary detail" value="' . $id . '" data-toggle="tooltip" data-placement="top" title="Detalle"><span class="glyphicon glyphicon-screenshot">' . $data["ID"] .'</span> </button>';
+
+			echo '<td class="text-center">' . $detail . '</td>';
+
+
+
+
+			echo '</tr>';
+
+
+			}
+
+			echo "</tbody></table><br/>";
+
+
+
+
+
+
+
+
+
+		}else{
+			echo "No hay usuarios en la BD o existe un error en la consulta";
+		}
+
+		//free memory
+		self::disconnect();
+
+
+
+	}//getTableUser
+
+
 }
 

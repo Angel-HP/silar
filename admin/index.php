@@ -1,4 +1,9 @@
 <?php
+
+//include "sql/User.php";
+//include '../data/UserDAO.php';
+include '../controller/UserController.php';
+
 require "inc/head.html";
 ?>
 <?php
@@ -12,7 +17,7 @@ require "inc/navbar.html";
 ?>
       <!-- End Navbar -->
 <?php
-require "inc/maincontent.html";
+require "inc/maincontent.php";
 ?>   
 </div>
 
