@@ -60,7 +60,7 @@ class UserController{
 	public function getTableUsers($user){
 		$obj_user = new User();
 
-		//$obj_user->setId_user($user);
+		$obj_user->setId_user($user);
 
 		return UserDAO::getTableUsers($obj_user);
 	}

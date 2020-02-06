@@ -217,89 +217,111 @@ class UserDAO extends Connect {
 
 	public static function getTableUsers($action){
 
-		$query = "SELECT id_user as ID, name as Nombre, user_name as Usuario FROM users";
+		$query = "SELECT id_user AS ID, name as Nombre, user_name as Usuario, id_priv, id_status_user FROM users;";
+		
 
-		//Establezco la conexion con la BD
 		self::getConnection();
 
-		//Preparo la sentencia SQL
+		
+
 		$result = self::$cnx->prepare($query);
 
-		//Se ejecuta la consulta
 		$result->execute();
 
-		//Se obtienen el numero de filas y el numero de columnas
+		
 		$rows = $result->rowCount();
 		$cols = $result->columnCount();
+		
 
-		//echo "Filas: " . $rows;
-		/*echo "<br/>";
-		echo "Columnas: " . $cols;*/
+		if($result->rowCount() > 0){
 
-		//Si existen datos en la tabla
-		if($rows > 0){
-			echo '<table class="table">';
-			echo '<thead class=" text-primary">
-			<tr>';
+		?>
+		<div class="table-responsive">
+		<table class="table table-striped"> 
+		<thead>   
 
-			foreach(range(0, $result->columnCount() - 1) as $column_index){
+		       <!--  <tr>
+		            <th style="text-align:center;">ID</th>
+		            <th style="text-align:center;">NAME</th>
+		            <th style="text-align:center;">USERNAME</th>
+		            <th style="text-align:center;">ACCIONES</th>
+		        </tr>           --> 
+<!------------------------   Table Head Begins ------------------------->
+		       <?php
+		       echo '  
+		       <tr>';
+
+			foreach(range(0, $result->columnCount() - 2) as $column_index){
 				$meta[] = $result->getColumnMeta($column_index);
 			}
 
-			for ($i=0; $i < $cols; $i++){
-				echo '<th>' . $meta[$i]["name"] . '</td>';	
+			for ($i=0; $i < $cols - 2; $i++){
+				echo '<th style="text-align:center;">' . $meta[$i]["name"] . '</td>';	
 			}       		
 			echo '<th style="text-align:center;">Acción</th>';
 
 			echo '</tr>
-			</thead>
-			<tbody>';
+
+		       ';
 
 
-			for($filas = 0; $filas < $rows; $filas++){
-				$data = $result->fetch();
-				echo '<tr>';
+		       ?>
+<!------------------------   Table Head Ends ------------------------->		       
+		<thead>   
+		<tbody>  
+			<form role="form" name="formUser" method="post" action="index.php"> 
+		<?php
+		echo '<br />';
+        for($filas = 0; $filas < $rows; $filas++){
+        	$data = $result->fetch();
+            ?>
+            <tr>
+                <td style="text-align:center;"><?php echo $data['ID']; ?></td>
+                <td style="text-align:center;"><?php echo $data['Nombre']; ?></td>
+                <td style="text-align:center;"><?php echo $data['Usuario']; ?></td>
+                <!-- <td>Boton Ver</td> -->
+				<td style="text-align:center;">
+                <button id="see-user" name="see-user" type="button" class="btn btn-primary"
+        				data-toggle="modal"
+        				data-target="#myModal"
+        				onclick="openUser('see', 
+                    '<?php echo $data['ID']; ?>', 
+                    '<?php echo $data['Nombre']; ?>',
+                    '<?php echo $data['Usuario']; ?>',
+                    '<?php echo $data['id_priv']; ?>',
+                    '<?php echo $data['id_status_user']; ?>')">
+    			Ver</button>
+				</td>
 
-				for($columns = 0; $columns < $cols; $columns++){
-					echo '<td>' . $data[$columns] .'</td>';
-				}
-
-			$id = $data["ID"];
-			/*$detail = '<a class="btn btn-primary btn-sm" href="action.php?a=4&b='. $id .'">Detalles de ' . $data["Nombre"] . '</a>';	*/
-
-
-			$detail = '<button type="button" class="btn btn-primary detail" value="' . $id . '" data-toggle="tooltip" data-placement="top" title="Detalle"><span class="glyphicon glyphicon-screenshot"> Ver  ' . $data["ID"] .'</span> </button>';
-
-			echo '<td class="text-center">' . $detail . '</td>';
+            </tr>    
+		<?php
+        	}
+        ?>
+       </form>        
+</tbody>      
+</table>
 
 
+</div>         
 
+<?php		
+    
 
-			echo '</tr>';
-
-
-			}
-
-			echo "</tbody></table><br/>";
-
-
-
-
-
-
-
-
+return true;
 
 		}else{
-			echo "No hay usuarios en la BD o existe un error en la consulta";
+
+			echo 'Tabla vacia: ' . $exception;
+			return false;
 		}
 
-		//free memory
-		self::disconnect();
 
 
 
-	}//getTableUser
+
+	}//getTableUsers method
+
+
 
 
 }

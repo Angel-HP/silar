@@ -29,8 +29,75 @@
   <!-- CSS Files -->
   <link href="css/material-dashboard.css" rel="stylesheet">
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="dashboard_files/demo.css" rel="stylesheet">
-<script type="text/javascript" charset="UTF-8" src="js/common.js"></script><script type="text/javascript" charset="UTF-8" src="js/util.js"></script><script type="text/javascript" charset="UTF-8" src="files/AuthenticationService.Authenticate"></script></head>
+  <link href="css/demo.css" rel="stylesheet">
+
+
+ <!--  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+  
+  <!-- <link href="css/dashboard.css" rel="stylesheet"> -->
+  <!-- <script src="js/ie-emulation-modes-warning.js"></script>     -->
+  <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+  <!-- <link href="css/dashboard.css" rel="stylesheet"> -->
+  <script src="js/ie-emulation-modes-warning.js"></script> 
+
+
+
+<script type="text/javascript" charset="UTF-8" src="js/common.js"></script>
+<script type="text/javascript" charset="UTF-8" src="js/util.js"></script>
+
+<script type="text/javascript" charset="UTF-8" src="files/AuthenticationService.Authenticate"></script>
+
+<script>
+  
+        function new_User(){                 
+            
+            openUser('new', null, null, null);
+        }
+        
+        function openUser(action, id_user, name_user, user_name, id_priv, id_status_user){    
+            document.formNewUser.id_user.value = id_user;
+            document.formNewUser.name_user.value = name_user;
+            document.formNewUser.user_name.value = user_name;
+             document.formNewUser.id_priv.value = id_priv;
+            document.formNewUser.id_status_user.value = id_status_user;
+            
+             
+            document.formNewUser.id_user.disabled = (action === 'see')?true:false;                
+            document.formNewUser.name_user.disabled = (action === 'see')?true:false; 
+            document.formNewUser.user_name.disabled = (action === 'see')?true:false; 
+            document.formNewUser.id_priv.disabled = (action === 'see')?true:false; 
+            document.formNewUser.id_status_user.disabled = (action === 'see')?true:false; 
+            
+             
+            $('#myModal').on('shown.bs.modal', function () {
+                var modal = $(this);
+                if (action === 'new'){                            
+                    modal.find('.modal-title').text('Creación de idioma');  
+                    $('#save-language').show();
+                    $('#update-language').hide();                
+                }else if (action === 'edit'){
+                    modal.find('.modal-title').text('Actualizar idioma');
+                    $('#save-language').hide();                    
+                    $('#update-language').show();   
+                }else if (action === 'see'){
+                    modal.find('.modal-title').text('Detalle del Usuario');
+                    $('#save-language').hide();   
+                    $('#update-language').hide();   
+                }
+                $('#idlanguage').focus()
+             
+            });
+        }        
+         
+    </script>
+
+
+
+
+
+</head>
 
 <body class="dark-edition">
   <div class="wrapper ">
