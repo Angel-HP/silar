@@ -218,7 +218,8 @@ class UserDAO extends Connect {
 	public static function getTableUsers($action){
 
 		/*$query = "SELECT id_user AS ID, name as Nombre, user_name as Usuario, id_priv, id_status_user FROM users;";*/
-		$query = "SELECT A.id_user AS ID, A.name as Nombre, A.user_name as Usuario, B.privelege, C.desc_status_user FROM users A, priveleges B, status_user C 
+		$query = "SELECT A.id_user AS ID, A.name as Nombre, A.user_name as Usuario, B.privelege, C.desc_status_user 
+			FROM users A, priveleges B, status_user C 
 			WHERE A.id_priv = B.id_priv AND A.id_status_user = C.id_status_user;";
 			
 
