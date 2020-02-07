@@ -218,10 +218,12 @@ class UserDAO extends Connect {
 	public static function getTableUsers($action){
 
 		/*$query = "SELECT id_user AS ID, name as Nombre, user_name as Usuario, id_priv, id_status_user FROM users;";*/
-		$query = "SELECT A.id_user AS ID, A.name as Nombre, A.user_name as Usuario, B.privelege, C.desc_status_user 
+		$query = "SELECT A.id_user AS ID, A.name as Nombre, A.user_name as Usuario, B.privelege, C.desc_status_user, A.user_tel AS Telefono, A.user_email AS Email, A.user_position AS Puesto 
 			FROM users A, priveleges B, status_user C 
 			WHERE A.id_priv = B.id_priv AND A.id_status_user = C.id_status_user;";
+
 			
+
 
 		self::getConnection();
 
@@ -258,7 +260,7 @@ class UserDAO extends Connect {
 				$meta[] = $result->getColumnMeta($column_index);
 			}
 
-			for ($i=0; $i < $cols - 2; $i++){
+			for ($i=0; $i < $cols - 6; $i++){
 				echo '<th style="text-align:center;">' . $meta[$i]["name"] . '</td>';	
 			}       		
 			echo '<th style="text-align:center;">Acción</th>';
@@ -281,7 +283,7 @@ class UserDAO extends Connect {
             <tr>
                 <td style="text-align:center;"><?php echo $data['ID']; ?></td>
                 <td style="text-align:center;"><?php echo $data['Nombre']; ?></td>
-                <td style="text-align:center;"><?php echo $data['Usuario']; ?></td>
+                
                 <!-- <td>Boton Ver</td> -->
 				<td style="text-align:center;">
                 <button id="see-user" name="see-user" type="button" class="btn btn-primary"
@@ -292,7 +294,11 @@ class UserDAO extends Connect {
                     '<?php echo $data['Nombre']; ?>',
                     '<?php echo $data['Usuario']; ?>',
                     '<?php echo $data['privelege']; ?>',
-                    '<?php echo $data['desc_status_user']; ?>')">
+                    '<?php echo $data['desc_status_user']; ?>',
+                    '<?php echo $data['Telefono']; ?>',
+                    '<?php echo $data['Email']; ?>',
+                    '<?php echo $data['Puesto']; ?>'
+                    )">
     			Ver</button>
 				</td>
 
