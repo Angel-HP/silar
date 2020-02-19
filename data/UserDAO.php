@@ -220,7 +220,7 @@ class UserDAO extends Connect {
 		/*$query = "SELECT id_user AS ID, name as Nombre, user_name as Usuario, id_priv, id_status_user FROM users;";*/
 		$query = "SELECT A.id_user AS ID, A.name as Nombre, A.user_name as Usuario, B.privelege, C.desc_status_user, A.user_tel AS Telefono, A.user_email AS Email, A.user_position AS Puesto 
 			FROM users A, priveleges B, status_user C 
-			WHERE A.id_priv = B.id_priv AND A.id_status_user = C.id_status_user;";
+			WHERE A.id_priv = B.id_priv AND A.id_status_user = C.id_status_user ORDER BY ID ASC;";
 
 			
 
@@ -329,6 +329,221 @@ return true;
 
 
 	}//getTableUsers method
+
+
+	public static function regUser($user){
+
+		/*echo $user->getId_priv();
+		echo "</br>";
+		echo $user->getId_status_user();
+		echo "</br>";
+		echo $user->getName();
+		echo "</br>";
+		echo $user->getUser_name();
+		echo "</br>";
+		echo $user->getUser_pass();
+		echo "</br>";
+		echo $user->getUser_tel();
+		echo "</br>";
+		echo $user->getUser_email();
+		echo "</br>";
+		echo $user->getUser_position();*/
+
+
+		/*$id_priv 			= $user->getId_priv();	
+		$id_status_user 	= $user->getId_status_user();
+		$id_history			= 0;
+		$name 				= $user->getName();	
+		$user_name 			= $user->getUser_name();	
+		$user_pass 			= $user->getUser_pass();	
+		$user_tel 			= $user->getUser_tel();	
+		$user_email 		= $user->getUser_email();	
+		$user_position 		= $user->getUser_position();
+		$online				= 0;*/
+
+
+		/*$insertUser = "INSERT INTO `users` (`id_user`, `id_priv`, `id_status_user`, `id_history`, `name`, `user_name`, `user_pass`, `user_tel`, `user_email`, `user_position`, `online`) VALUES (NULL, '$id_priv', '$id_status_user', '$id_history', '$name', '$user_name', '$user_pass', '$user_tel', '$user_email', '$user_position', '$online');";*/
+
+		$insertUser = "INSERT INTO `users` (`id_user`, `id_priv`, `id_status_user`, `id_history`, `name`, `user_name`, `user_pass`, `user_tel`, `user_email`, `user_position`, `online`) 
+		VALUES (NULL, :id_priv, :id_status_user, :id_history, :name, :user_name, :user_pass, :user_tel, :user_email, :user_position, :online);";
+
+
+		self::getConnection();
+
+		$result = self::$cnx->prepare($insertUser);
+
+
+		$id_priv 			= $user->getId_priv();	
+		$result->bindParam(":id_priv", $id_priv);
+
+		$id_status_user 	= $user->getId_status_user();
+		$result->bindParam(":id_status_user", $id_status_user);
+
+		$id_history			= 0;
+		$result->bindParam(":id_history", $id_history);
+
+		$name 				= $user->getName();	
+		$result->bindParam(":name", $name);
+
+		$user_name 			= $user->getUser_name();	
+		$result->bindParam(":user_name", $user_name);
+
+		$user_pass 			= $user->getUser_pass();	
+		$result->bindParam(":user_pass", $user_pass);
+
+		$user_tel 			= $user->getUser_tel();	
+		$result->bindParam(":user_tel", $user_tel);
+
+		$user_email 		= $user->getUser_email();	
+		$result->bindParam(":user_email", $user_email);
+
+		$user_position 		= $user->getUser_position();
+		$result->bindParam(":user_position", $user_position);
+
+		$online 			= '0';
+		$result->bindParam(":online", $online);
+
+
+		if($result->execute()){
+
+			echo '<div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <i class="material-icons">close</i>
+                    </button>
+                    <span>
+                      <b> Listo - </b> Se registro la información correctamente...
+                  </div>';
+
+    
+    		echo"<meta HTTP-EQUIV='Refresh' CONTENT='2; URL=index.php'<head/>";
+
+			
+			self::disconnect();
+			
+			return true;
+		}else{
+			return false;
+		}
+
+
+
+	} //regUser method
+
+
+	public static function getTableUsersEdit($action){
+
+		/*$query = "SELECT id_user AS ID, name as Nombre, user_name as Usuario, id_priv, id_status_user FROM users;";*/
+		$query = "SELECT A.id_user AS ID, A.name as Nombre, A.user_name as Usuario, B.privelege, C.desc_status_user, A.user_tel AS Telefono, A.user_email AS Email, A.user_position AS Puesto 
+			FROM users A, priveleges B, status_user C 
+			WHERE A.id_priv = B.id_priv AND A.id_status_user = C.id_status_user ORDER BY ID ASC;";
+
+			
+
+
+		self::getConnection();
+
+		
+
+		$result = self::$cnx->prepare($query);
+
+		$result->execute();
+
+		
+		$rows = $result->rowCount();
+		$cols = $result->columnCount();
+		
+
+		if($result->rowCount() > 0){
+
+		?>
+		<div class="table-responsive">
+		<table class="table table-striped"> 
+		<thead>   
+
+		       <!--  <tr>
+		            <th style="text-align:center;">ID</th>
+		            <th style="text-align:center;">NAME</th>
+		            <th style="text-align:center;">USERNAME</th>
+		            <th style="text-align:center;">ACCIONES</th>
+		        </tr>           --> 
+<!------------------------   Table Head Begins ------------------------->
+		       <?php
+		       echo '  
+		       <tr>';
+
+			foreach(range(0, $result->columnCount() - 2) as $column_index){
+				$meta[] = $result->getColumnMeta($column_index);
+			}
+
+			for ($i=0; $i < $cols - 6; $i++){
+				echo '<th style="text-align:center;">' . $meta[$i]["name"] . '</td>';	
+			}       		
+			echo '<th style="text-align:center;">Acción</th>';
+
+			echo '</tr>
+
+		       ';
+
+
+		       ?>
+<!------------------------   Table Head Ends ------------------------->		       
+		<thead>   
+		<tbody>  
+			<form role="form" name="formUser" method="post" action="index.php"> 
+		<?php
+		echo '<br />';
+        for($filas = 0; $filas < $rows; $filas++){
+        	$data = $result->fetch();
+            ?>
+            <tr>
+                <td style="text-align:center;"><?php echo $data['ID']; ?></td>
+                <td style="text-align:center;"><?php echo $data['Nombre']; ?></td>
+                
+                <!-- <td>Boton Ver</td> -->
+			<?php
+
+			$edit = '<a class="btn btn-warning btn-sm" href="action.php?id=12&u='. $data['ID'] .'">Editar</a>';
+
+			?>
+				<td style="text-align:center;">
+
+			<?php
+
+			echo $edit;
+
+			?>
+
+				</td>
+
+            </tr>    
+		<?php
+        	}
+        ?>
+       </form>        
+</tbody>      
+</table>
+
+
+</div>         
+
+<?php		
+    
+
+return true;
+
+		}else{
+
+			echo 'Tabla vacia: ' . $exception;
+			return false;
+		}
+
+
+
+
+
+	}//getTableUsers method
+
+
 
 
 

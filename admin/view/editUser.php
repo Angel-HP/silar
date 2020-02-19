@@ -1,17 +1,9 @@
 <?php
-session_start();
-
-//include "sql/User.php";
-//include '../data/UserDAO.php';
-include '../controller/UserController.php';
-
-require "inc/head.html";
-
+//session_start();
 
 if(isset($_SESSION['user'])){
 
-
-
+	require "inc/head.html";
 	?>
 	<?php
 	require "inc/sidebar.html";
@@ -24,7 +16,7 @@ if(isset($_SESSION['user'])){
 	?>
 	      <!-- End Navbar -->
 	<?php
-	require "content/maincontent.php";
+	require "content/editContent.php";
 	?>   
 	</div>
 
@@ -36,10 +28,6 @@ if(isset($_SESSION['user'])){
 }else{
   echo '<script>location.href = "../index.php"</script>';
 }
-
-
-
-
 
 ?>      
 

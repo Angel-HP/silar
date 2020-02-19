@@ -12,29 +12,39 @@ if(isset($id)){
 	switch($id){
 		case 1:
 			//Listar usuarios
-			require_once("view/listUser.php");
+			//require_once("view/listUser.php");
 			break;
 		case 2:
 			//Registrar Usuarios
-			require_once("view/regUser.php");
+			require_once("view/formRegUser.php");
 			break;
 		case 3:
-			//Modificar Usuarios
+			//Capturar valores del form
+			require_once("view/regUser.php");
+			break;
+		case 11:
+			//Listar Usuario a Modificar
+			require_once("view/listEditUser.php");
+			break;
+		case 12:
+			//Formuarrio de Usuario a Modificar
 			require_once("view/editUser.php");
 			break;
-		case 4:
+		case 21:
 			//Eliminar Usuiarios
 			require_once("view/deleteUser.php");
 			break;
-		case 5:
+		case 31:
 			//Cambiar Pass
 			require_once("view/changePass.php");
 			break;
 		
+		
 		default:
-			echo"No hay mas Opciones";
+			/*echo"No hay mas Opciones";
 			echo "<br/>";
-			echo"<meta HTTP-EQUIV='Refresh' CONTENT='3; URL=../index.php'<head/>";
+			echo"<meta HTTP-EQUIV='Refresh' CONTENT='3; URL=../index.php'<head/>";*/
+			require_once("view/error404.php");
 			break;
 
 	}
