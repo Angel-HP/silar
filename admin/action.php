@@ -28,7 +28,7 @@ if(isset($id)){
 			break;
 		case 12:
 			//Formuarrio de Usuario a Modificar
-			require_once("view/editUser.php");
+			require_once("view/formEditUser.php");
 			break;
 		case 21:
 			//Eliminar Usuiarios
