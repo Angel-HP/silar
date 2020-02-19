@@ -1,5 +1,5 @@
 <?php
-//session_start();
+include '../controller/UserController.php';
 
 if(isset($_SESSION['user'])){
 

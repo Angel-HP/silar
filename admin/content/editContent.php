@@ -35,10 +35,32 @@ if(isset($_GET['u'])){
 
 <!--    <form name="regContent_submit" method="POST" action="action.php?id=3" accept-charset="utf-8"> -->
 <form name="regContent_submit" method="POST" action="op.php?id=13" accept-charset="utf-8"><input type="hidden" value="1" name="id_user" />  
+
+<?php
+
+$id_user = $_GET['u'];
+
+
+
+
+?>
+
 <div class="row">
   <div class="col-md-6">
     
     <div class="alert alert-primary">
+
+  <input type="hidden" value="<?php echo $id_user  ?>" name="id_user">
+
+
+<?php
+
+
+$user = UserController::getUserData($id_user);
+
+?>
+
+
 
   <div class="form-group">
     <label for="id_priv"><b>Privilegio</b></label>
@@ -58,20 +80,30 @@ if(isset($_GET['u'])){
       </select>
     </div>
 
+<?php
+
+$name = $user->getName();
+?>    
 
     <div class="form-group">
       <label class="" for="name"><b> Nombre</b></label> 
         <div class="">
-          <input type="text" name="name" class="col-md-12" id="name"   value="Angel" maxlength="" size="" style=""     placeholder="Escriba su Nombre" required  autocomplete="off" />
+          <input type="text" name="name" class="col-md-12" id="name"   value="<?php echo $name  ?>" maxlength="" size="" style=""     placeholder="Escriba su Nombre" required  autocomplete="off" />
         </div>
     </div>
                 
     <div class="space">&nbsp;</div>
 
+<?php
+
+
+$user_name = $user->getUser_name();
+?>
+
     <div class="form-group">
       <label class="" for="user_name"><b> Usuario</b></label> 
         <div class="">
-          <input type="text" name="user_name" class="col-md-12" id="user_name"   value="angel" maxlength="" size="" style=""     placeholder="Nombre de Usuario" required  autocomplete="off" />
+          <input type="text" name="user_name" class="col-md-12" id="user_name"   value="<?php echo $user_name  ?>" maxlength="" size="" style=""     placeholder="Nombre de Usuario" required  autocomplete="off" />
        </div>
     </div>
 

@@ -30,6 +30,10 @@ if(isset($id)){
 			//Formuarrio de Usuario a Modificar
 			require_once("view/formEditUser.php");
 			break;
+		case 13:
+			//Edición del usuario
+			require_once("view/editUser.php");
+			break;
 		case 21:
 			//Eliminar Usuiarios
 			require_once("view/deleteUser.php");

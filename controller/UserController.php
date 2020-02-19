@@ -106,6 +106,20 @@ class UserController{
 		return UserDAO::updateUser($obj_user);
 
 	}//regUser method
+
+
+	//Obtenemos los datos del usuario
+	public function getUserData($user){
+
+		$obj_user = new User();
+
+		$obj_user->setId_user($user);
+
+		//echo $obj_user->getId_user();
+
+		return UserDAO::getUserData($obj_user);
+
+	}///getDoc method
 	
 }//Class UserController
 

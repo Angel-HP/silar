@@ -538,10 +538,48 @@ return true;
 		}
 
 
+}//getTableUsers method
 
 
+public function getUserData($user){
 
-	}//getTableUsers method
+$query = "SELECT A.id_priv, B.privelege, A.id_status_user, C.desc_status_user, A.name, A.user_name, A.user_tel, A.user_email, A.user_position 
+	FROM users A, priveleges B, status_user C 
+	WHERE A.id_priv = B.id_priv AND A.id_status_user = C.id_status_user AND A.id_user = :id_user";
+
+self::getConnection();
+
+	$result = self::$cnx->prepare($query);
+
+	$id_user 			= $user->getId_user();	
+	$result->bindParam(":id_user", $id_user);
+
+$result->execute();
+
+
+$data = $result->fetch();
+
+$user = new User();
+
+$user->setId_priv($data["id_priv"]);
+$user->setPrivelege($data["privelege"]);
+$user->setId_status_user($data["id_status_user"]);
+$user->setDesc_status_user($data["desc_status_user"]);
+$user->setName($data["name"]);
+$user->setUser_name($data["user_name"]);
+$user->setUser_tel($data["user_tel"]);
+$user->setUser_email($data["user_email"]);
+$user->setUser_position($data["user_position"]);
+
+
+self::disconnect();
+
+	
+	//Retornamos el objeto $user
+	return $user;
+
+
+}//getUserData method
 
 
 
