@@ -16,6 +16,8 @@
 
 <?php
 
+include '../sql/Combo.php';
+
 ?>
 
 <div class="card-body">
@@ -61,23 +63,63 @@ $user = UserController::getUserData($id_user);
 ?>
 
 
+<?php
+
+
+
+
+
+?>   
+
+
 
   <div class="form-group">
-    <label for="id_priv"><b>Privilegio</b></label>
-    <select name="id_priv" id="id_priv" class="form-control" required="required"  >
+    <!-- <label for="id_priv"><b>Privilegio</b></label> -->
+    <?php
+
+    //echo $id_priv . "<br/>";
+    $position = $user->getId_priv();
+    $desc_position = $user->getPrivelege();
+
+    $val_position = $position . " - " . $desc_position; 
+
+    //echo $val_position;
+    $query = "SELECT id_priv, privelege FROM priveleges EXCEPT WHERE id_priv <> '$position' ORDER BY id_priv";
+
+    $combo = new combo($query,"id_priv","id_priv", $val_position, "Privilegio","required","","","1");
+
+
+
+    ?>
+    <!-- <select name="id_priv" id="id_priv" class="form-control" required="required"  >
       <option value='1 '> Administrador</option>
       <option value="2">Desarrollador</option>
       <option value="3">Usuario</option>
-      </select>
+      </select> -->
     </div>
 
 
   <div class="form-group">
-    <label for="id_status_user"><b>Estado</b></label>
+    <!-- <label for="id_status_user"><b>Estado</b></label> -->
+    <?php
+
+    //echo $id_priv . "<br/>";
+    $status = $user-> getId_status_user();
+    $desc_status = $user->getDesc_status_user();
+
+    $val_status = $status . " - " . $desc_status;
+
+    $query = "SELECT id_status_user, desc_status_user FROM status_user EXCEPT WHERE id_status_user <> '$status' ORDER BY id_status_user";
+     $combo = new combo($query,"id_status_user","id_status_user", $val_status, "Estado","required","","","1");
+    
+
+
+
+    ?><!-- 
       <select name="id_status_user" id="id_status_user" class="form-control" required="required"  >
         <option value='1 '> Activo</option>
         <option value="2">Baja</option>
-      </select>
+      </select> -->
     </div>
 
 <?php
@@ -126,29 +168,47 @@ $user_name = $user->getUser_name();
   </div>
 
 
+<?php
+
+$user_tel = $user->getUser_tel();
+
+?>
+
   <div class="form-group">
     <label class="" for=" user_tel "><b> Telefono</b></label>
   <div class="">  
-      <input type="tel" name="user_tel" class="col-md-12" id=" user_tel"   value="123456789" maxlength=10size=10style=     placeholder="Numero telefónico..." required autofocus/>
+      <input type="tel" name="user_tel" class="col-md-12" id=" user_tel"   value="<?php echo $user_tel  ?>" maxlength=10size=10style=     placeholder="Numero telefónico..." required autofocus/>
     </div>
   </div>
 
 
   <div class="space">&nbsp;</div>
 
+
+
+<?php
+
+$user_email = $user->getUser_email();
+
+?>
+
  <div class="form-group">
       <label class="" for=" user_email "><b> Correo Electrónico</b></label>
      <div class="">    
-        <input type="email" name="user_email" class="col-md-12" id=" user_email"   value="angelhpjuli@gmail.com" maxlength=size=style=     placeholder="Escriba su email..." required autofocus/>
+        <input type="email" name="user_email" class="col-md-12" id=" user_email"   value="<?php echo $user_email  ?>" maxlength=size=style=     placeholder="Escriba su email..." required autofocus/>
      </div>
  </div>
 
 
+<?php
 
+$user_position = $user->getUser_position();
+
+?>
   <div class="form-group">
     <label class="" for="user_position"><b> Puesto</b></label> 
     <div class="">
-      <input type="text" name="user_position" class="col-md-12" id="user_position"   value="Administrador" maxlength="" size="" style=""     placeholder="Puesto del usuario" required  autocomplete="off" />
+      <input type="text" name="user_position" class="col-md-12" id="user_position"   value="<?php echo $user_position  ?>" maxlength="" size="" style=""     placeholder="Puesto del usuario" required  autocomplete="off" />
     </div>
   </div>
 
