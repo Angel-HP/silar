@@ -18,16 +18,18 @@ echo "Formulario"
 <?php
 if(isset($_POST['save'])){
 
-	$var = "select"
-	if ($var = =1){
+
+   $var = $_POST['select'];
+
+	if ($var = = "1"){
 		echo "Usted es del genero Masculino";
 	}
 
-	if ($var = =2){
+	if ($var = = "2"){
 		echo "Usted es del genero Femenino";
 	}
  else{
- 	echo "Sed esconoce genero"
+ 	echo "Se desconoce genero"
  }
 }
 else{
