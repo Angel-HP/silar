@@ -1,0 +1,27 @@
+Warnings
+
+
+Como solucionar Warning:It is not safe to rely on the system’s timezone settings en PhP
+
+Read more at: https://www.vichaunter.org/como-se-hace/como-solucionar-warningit-safe-rely-systems-timezone-settings-en-php 
+
+Solucion:
+
+https://www.vichaunter.org/como-se-hace/como-solucionar-warningit-safe-rely-systems-timezone-settings-en-php
+
+Config:
+https://www.php.net/manual/en/timezones.america.php
+
+Reiniciar el servicio de apache desde .
+
+cmd>
+	services.scm
+
+o bien;
+
+	click der, en equipo
+			Administrar
+					Administración de equipos
+							Servicios y aplicaciones
+								Servicios
+									(Reiniciar Servicio Apache)	
