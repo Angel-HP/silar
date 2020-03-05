@@ -25,6 +25,11 @@
 		  }
 	}//Connection
 
+
+	public static function disconnect(){
+		$cn = NULL;
+	}//disconnect method
+
 	
 }
 

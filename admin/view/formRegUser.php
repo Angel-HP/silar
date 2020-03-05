@@ -1,6 +1,10 @@
 <?php
 //session_start();
 
+include "inc/Combo.php";
+
+
+
 if(isset($_SESSION['user'])){
 
 	require "inc/head.html";
@@ -16,7 +20,7 @@ if(isset($_SESSION['user'])){
 	?>
 	      <!-- End Navbar -->
 	<?php
-	require "content/regContent.html";
+	require "content/regContent.php";
 	?>   
 	</div>
 

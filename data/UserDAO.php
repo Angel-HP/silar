@@ -16,7 +16,7 @@ class UserDAO extends Connect {
 	}
 
 	//Definir la desconexion a la BD
-	private static function disconnect(){
+	public static function disconnect(){
 		self::$cnx = NULL;	
 		
 	}
