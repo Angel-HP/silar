@@ -72,7 +72,7 @@ if(isset($_POST['save'])){
                   </div>';
 
     //echo '<span class="label label-info">No se registro la información correctamente...</span>';
-    echo"<meta HTTP-EQUIV='Refresh' CONTENT='2; URL=index.php'<head/>";
+    //echo"<meta HTTP-EQUIV='Refresh' CONTENT='2; URL=index.php'<head/>";
   }
 
 
