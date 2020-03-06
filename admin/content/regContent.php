@@ -34,13 +34,13 @@
                     
                       $query = "SELECT id_priv, privelege FROM `priveleges`";
 
-                      $combo = new combo($query, "select", "", "", "PRIVILEGIO ")
+                      $combo = new combo($query, "id_priv", "", "", "PRIVILEGIO ")
 
                       ?>
                       <?php
                       $query ="SELECT id_status_user, desc_status_user FROM `status_user` ";
 
-                      $combo = new combo($query, "select", "", "", "ESTADO" )
+                      $combo = new combo($query, "id_status_user", "", "", "ESTADO" )
                       ?>
 
             

@@ -1,6 +1,7 @@
 <?php
 /*---------------   Conexion -----------------------------*/
-$host_BD = "localhost";
+getConection();
+/*$host_BD = "localhost";
 $user_BD = "dev";
 $pass_BD = "desarrollo";
 $name_BD = "silar";
@@ -13,7 +14,7 @@ if ($link->connect_errno) {
 }else{
 	//echo "Conexion Establecida correctamente";
 }
-//Connect::conn();
+//Connect::conn();*/
 /*---------------   Conexion -----------------------------*/
 
 
@@ -71,19 +72,19 @@ $query = "SELECT id_priv, privelege FROM `priveleges`";
 //echo $query;
 
 //Ejecución de la consulta
-$data = mysqli_query($link, $query);
+//$data = mysqli_query($link, $query);
 
 
-if (!$data) {
+/*if (!$data) {
     printf("Error: %s\n", mysqli_error($link));
     exit();
-}
+}*/
 
 
 
 //Contamos rsultados
 
-$filas = mysqli_num_rows($data);
+//$filas = mysqli_num_rows($data);
 
 /*echo "Numero de filas resultantes: " . $filas;
 echo "<br/>";*/
@@ -107,10 +108,10 @@ echo "<br/>";*/
 		<option value=""> Seleccione una opcion </option>
 		
 <?php
-		for ($i=0; $i < $filas; $i++) { 
+		//for ($i=0; $i < $filas; $i++) { 
 
 	
-			$info = mysqli_fetch_array($data);
+			//$info = mysqli_fetch_array($data);
 
 			echo '<option value="' . $info['id_priv'] . '">' . $info['privelege']  . '</option>';
 		}
@@ -126,9 +127,6 @@ echo "<br/>";*/
 
   <button type="submit" name="save" > Enviar</button>
 
-<?php
-}
-?>
 
 
 </form>
