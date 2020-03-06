@@ -45,7 +45,7 @@ if(isset($_POST["update"])){
     $user_position    = validate_field($_POST['user_position']);
 
 
-    /*echo "Se recibio inforamción" . "</br>";
+    echo "Se recibio inforamción" . "</br>";
     echo "Privilegio: " . $id_priv . "</br>";
     echo "Estatus: " . $id_status_user . "</br>";
     echo "Nombre: " . $name . "</br>";
@@ -53,7 +53,7 @@ if(isset($_POST["update"])){
     
     echo "Telefono: " . $user_tel . "</br>";
     echo "Correo Electronico: " . $user_email . "</br>";
-    echo "Puesto: " . $user_position . "</br>";*/
+    echo "Puesto: " . $user_position . "</br>";
 
 
     UserController::updateUser($id_user, $id_priv, $id_status_user, $name, $user_name, $user_tel, $user_email, $user_position);
@@ -67,7 +67,7 @@ if(isset($_POST["update"])){
                       <b> Acción realizada - </b> Se actualizo la información correctamente...
                   </div>';
 
-    echo "<meta HTTP-EQUIV='Refresh' CONTENT='2; URL=index.php'<head/>";
+    //echo "<meta HTTP-EQUIV='Refresh' CONTENT='2; URL=index.php'<head/>";
 
     
   }

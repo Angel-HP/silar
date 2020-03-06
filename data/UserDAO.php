@@ -467,7 +467,7 @@ return true;
 		            <th style="text-align:center;">ACCIONES</th>
 		        </tr>           --> 
 <!------------------------   Table Head Begins ------------------------->
-		       <?phpupdat
+		       <?php
 		       echo '  
 		       <tr>';
 
@@ -494,7 +494,7 @@ return true;
 		echo '<br />';
         for($filas = 0; $filas < $rows; $filas++){
         	$data = $result->fetch();
-            ?>updat
+            ?>
             <tr>
                 <td style="text-align:center;"><?php echo $data['ID']; ?></td>
                 <td style="text-align:center;"><?php echo $data['Nombre']; ?></td>
@@ -505,7 +505,7 @@ return true;
 			$edit = '<a class="btn btn-warning btn-sm" href="action.php?id=12&u='. $data['ID'] .'">Editar</a>';
 
 			?>
-				<td style="text-align:center;">updat
+				<td style="text-align:center;">
 
 			<?php
 
@@ -583,7 +583,10 @@ self::disconnect();
 
 public static function updateUser ($user){
 
-$query = "UPDATE `users` SET `id_user` = '$id_user ', `id_priv` = '$id_priv', `id_status_user` = '$id_status_user', `id_history` = '$id_history ', `name` = '$name ', `user_pass` = '$user_pass', `user_tel` = '$user_tel ', `user_email` = '$user_email ', `user_position` = '$user_position' WHERE `users`.`id_user` = `$id_user`";
+$query = "UPDATE `users` SET `id_user` = :id_user , `id_priv` = :id_priv, `id_status_user` = :id_status_user, `id_history` = :id_history , `name` = :name , `user_pass` = :user_pass, `user_tel` = :user_tel , `user_email` = :user_email, `user_position` = :user_position WHERE `users`.`id_user` = :id_user";
+
+
+echo "<br/>" . $query;
 
 
 }
