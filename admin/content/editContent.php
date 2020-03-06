@@ -36,7 +36,7 @@ if(isset($_GET['u'])){
 ?>  
 
 <!--    <form name="regContent_submit" method="POST" action="action.php?id=3" accept-charset="utf-8"> -->
-<form name="regContent_submit" method="POST" action="op.php?id=13" accept-charset="utf-8"><input type="hidden" value="1" name="id_user" />  
+<form name="regContent_submit" method="POST" action="action.php?id=13" accept-charset="utf-8"><input type="hidden" value="1" name="id_user" />  
 
 <?php
 

@@ -32,6 +32,8 @@
 
 if(isset($_POST["update"])){
 
+  echo "Se recibio inforamción";
+/*
    if (isset($_POST['id_user']) and isset($_POST['id_priv']) and isset($_POST['id_status_user']) and isset($_POST['name']) and isset( $_POST['user_name']) and isset($_POST['user_tel']) and isset($_POST['user_email']) and isset($_POST['user_position']) ) {
 
     
@@ -59,7 +61,7 @@ if(isset($_POST["update"])){
     echo "<meta HTTP-EQUIV='Refresh' CONTENT='2; URL=index.php'<head/>";
 
     
-  }
+  }*/
 
 
 
