@@ -583,13 +583,13 @@ self::disconnect();
 
 public static function updateUser ($user){
 
-$query = "UPDATE `users` SET `id_user` = :id_user , `id_priv` = :id_priv, `id_status_user` = :id_status_user, ` `name` = :name ,  `user_tel` = :user_tel , `user_email` = :user_email, `user_position` = :user_position WHERE `users`.`id_user` = :id_user";
+$updatetUser = "UPDATE `users` SET `id_user` = :id_user , `id_priv` = :id_priv, `id_status_user` = :id_status_user, `name` = :name, `user_name` = :user_name, `user_tel` = :user_tel , `user_email` = :user_email, `user_position` = :user_position WHERE `users`.`id_user` = :id_user";
 
 
 //echo "<br/>" . $query;
 		self::getConnection();
 
-		$result = self::$cnx->prepare($insertUser);
+		$result = self::$cnx->prepare($updatetUser);
 
 		$id_user 			= $user->getId_user();	
 		$result->bindParam(":id_user", $id_user);
@@ -639,11 +639,11 @@ $query = "UPDATE `users` SET `id_user` = :id_user , `id_priv` = :id_priv, `id_st
 
 
 
-}
+}//updateUser METHOD
 
 
 
 
 
-}
+}//UserDAO Class
 
