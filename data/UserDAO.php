@@ -583,10 +583,60 @@ self::disconnect();
 
 public static function updateUser ($user){
 
-$query = "UPDATE `users` SET `id_user` = :id_user , `id_priv` = :id_priv, `id_status_user` = :id_status_user, `id_history` = :id_history , `name` = :name , `user_pass` = :user_pass, `user_tel` = :user_tel , `user_email` = :user_email, `user_position` = :user_position WHERE `users`.`id_user` = :id_user";
+$query = "UPDATE `users` SET `id_user` = :id_user , `id_priv` = :id_priv, `id_status_user` = :id_status_user, ` `name` = :name ,  `user_tel` = :user_tel , `user_email` = :user_email, `user_position` = :user_position WHERE `users`.`id_user` = :id_user";
 
 
-echo "<br/>" . $query;
+//echo "<br/>" . $query;
+		self::getConnection();
+
+		$result = self::$cnx->prepare($insertUser);
+
+		$id_user 			= $user->getId_user();	
+		$result->bindParam(":id_user", $id_user);
+
+		$id_priv 			= $user->getId_priv();	
+		$result->bindParam(":id_priv", $id_priv);
+
+		$id_status_user 	= $user->getId_status_user();
+		$result->bindParam(":id_status_user", $id_status_user);
+
+		$name 				= $user->getName();	
+		$result->bindParam(":name", $name);
+
+		$user_name 			= $user->getUser_name();	
+		$result->bindParam(":user_name", $user_name);
+
+		$user_tel 			= $user->getUser_tel();	
+		$result->bindParam(":user_tel", $user_tel);
+
+		$user_email 		= $user->getUser_email();	
+		$result->bindParam(":user_email", $user_email);
+
+		$user_position 		= $user->getUser_position();
+		$result->bindParam(":user_position", $user_position);
+
+
+		if($result->execute()){
+
+			echo '<div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <i class="material-icons">close</i>
+                    </button>
+                    <span>
+                      <b> Listo - </b> Se actualizo la información correctamente...
+                  </div>';
+
+    
+    		echo"<meta HTTP-EQUIV='Refresh' CONTENT='2; URL=index.php'<head/>";
+
+			
+			self::disconnect();
+			
+			return true;
+		}else{
+			return false;
+		}
+
 
 
 }
