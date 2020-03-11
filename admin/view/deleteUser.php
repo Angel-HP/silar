@@ -1,5 +1,7 @@
 <?php
 
+include '../controller/UserController.php';
+
 if(isset($_SESSION['user'])){
 
 	require "inc/head.html";
@@ -15,7 +17,7 @@ if(isset($_SESSION['user'])){
 	?>
 	      <!-- End Navbar -->
 	<?php
-	require "content/processDelete.php";
+	require "content/listDeleteUser.php";
 	?>    
 	</div>
 

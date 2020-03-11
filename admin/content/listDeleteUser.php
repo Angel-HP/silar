@@ -31,7 +31,7 @@
 $params = "";
 
 
-UserController::getTableUsersDelete($params);
+UserController::getTableUserDelete($params);
 
 
 
