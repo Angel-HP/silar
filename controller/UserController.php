@@ -120,6 +120,15 @@ class UserController{
 		return UserDAO::getUserData($obj_user);
 
 	}///getDoc method
+
+	//Listar Usuarios para eliminar
+	public function getTableUserDelete($user){
+		$obj_user = new User();
+
+		$obj_user->setId_user($user);
+
+		return UserDAO::getTableUsersDelte($obj_user);
+	}
 	
 }//Class UserController
 
