@@ -688,7 +688,7 @@ $query = "SELECT A.id_user AS ID, A.name as Nombre, A.user_name as Usuario, B.pr
 <!------------------------   Table Head Ends ------------------------->		       
 	<thead>   
 	<tbody>  
-		<form role="form" name="formUser" method="post" action="index.php"> 
+		<!--<form role="form" name="formUser" method="post" action="index.php"> -->
 	<?php
 	echo '<br />';
     for($filas = 0; $filas < $rows; $filas++){
@@ -710,11 +710,43 @@ $query = "SELECT A.id_user AS ID, A.name as Nombre, A.user_name as Usuario, B.pr
 		?>
 			<td style="text-align:center;">
 
-		<?php
+	<div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-9">
+					
+					<button type="submit" class="btn btn-danger confirmar"> Eliminar</button>
+				
+				</div>
+			</div>
+		</div>
+	</div>
 
-		//echo $delete;
 
-		?>
+
+ <script type="text/javascript">
+                        $('.confirmar').on('click',function(){
+                            $.confirm({
+                            	
+
+                            	confirmButtonClass: 'btn-success',
+    							
+    							cancelButtonClass: 'btn-danger',
+
+                                title: 'Delete user?',
+                                content: 'This dialog will automatically trigger \'cancel\' in 5 seconds if you don\'t respond.',
+                                autoClose: 'cancel|5000',
+	                                confirm: function(){
+	                                    alert('confirmed');
+	                                },
+	                                cancel:function(){
+	                                    alert('cancelled');
+	                                }
+                            });
+                        });
+                        
+                        </script>
+
 
 			</td>
 
@@ -722,7 +754,7 @@ $query = "SELECT A.id_user AS ID, A.name as Nombre, A.user_name as Usuario, B.pr
 	<?php
     	}
     ?>
-   </form>        
+   <!--</form>-->        
 </tbody>      
 </table>
 
