@@ -724,7 +724,7 @@ $query = "SELECT A.id_user AS ID, A.name as Nombre, A.user_name as Usuario, B.pr
 
 
 
- <script type="text/javascript">
+<script type="text/javascript">
                         $('.confirmar').on('click',function(){
                             $.confirm({
                             	
@@ -746,6 +746,8 @@ $query = "SELECT A.id_user AS ID, A.name as Nombre, A.user_name as Usuario, B.pr
                         });
                         
                         </script>
+
+
 
 
 			</td>
