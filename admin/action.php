@@ -38,6 +38,10 @@ if(isset($id)){
 			//Eliminar Usuiarios
 			require_once("view/deleteUser.php");
 			break;
+		case 22:
+			//Eliminar Usuiarios
+			require_once("view/processDelete.php");
+			break;
 		case 31:
 			//Cambiar Pass
 			require_once("view/changePass.php");

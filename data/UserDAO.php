@@ -705,7 +705,7 @@ $query = "SELECT A.id_user AS ID, A.name as Nombre, A.user_name as Usuario, B.pr
 
 		//$delete = '<a class="btn btn-danger btn-sm" href="op.php?id=22&u='. $data['ID'] .'">Eliminar</a>';
 		//$delete = '<button class="btn btn-danger btn-sm" onclick="confirmar(\'op.php?id=22&u='. $data['ID'] .'\')">Eliminar</button>';
-		$delete = '<button class="btn btn-danger btn-sm" onclick="confirmar(\'action.php?a=21&b=' . $id . '\')">Eliminar</button>';
+		$delete = '<button class="btn btn-danger btn-sm" type="submit" id="eliminar" onclick="confirmar(\'action.php?id=22&u=' . $id . '\')">Eliminar</button>';
 
 		?>
 			<td style="text-align:center;">
@@ -715,7 +715,13 @@ $query = "SELECT A.id_user AS ID, A.name as Nombre, A.user_name as Usuario, B.pr
 			<div class="row">
 				<div class="col-md-9">
 					
-					<button type="submit" class="btn btn-danger confirmar"> Eliminar</button>
+					<!-- <button type="submit" class="btn btn-danger btn-sm confirmar"> Eliminar<?php echo $id; ?></button>  -->
+
+					<?php
+
+					echo $delete;
+
+					?>
 				
 				</div>
 			</div>
@@ -724,7 +730,20 @@ $query = "SELECT A.id_user AS ID, A.name as Nombre, A.user_name as Usuario, B.pr
 
 
 
-<script type="text/javascript">
+
+
+
+
+
+			</td>
+
+        </tr>    
+	<?php
+    	}
+    ?>
+   <!--</form>-->        
+
+<!-- <script type="text/javascript">
                         $('.confirmar').on('click',function(){
                             $.confirm({
                             	
@@ -737,26 +756,53 @@ $query = "SELECT A.id_user AS ID, A.name as Nombre, A.user_name as Usuario, B.pr
                                 content: 'This dialog will automatically trigger \'cancel\' in 5 seconds if you don\'t respond.',
                                 autoClose: 'cancel|5000',
 	                                confirm: function(){
-	                                    alert('confirmed');
+	                                    /*alert('confirmed');*/
 	                                },
 	                                cancel:function(){
-	                                    alert('cancelled');
+	                                    /*alert('cancelled');*/
 	                                }
                             });
                         });
                         
-                        </script>
+                        </script> -->
+
+
+  <script>
+
+function confirmar(url){
+  $.confirm({
+
+  	confirmButtonClass: 'btn-danger',
+    cancelButtonClass: 'btn-success',
+    title: '¿Deseas eliminar este registro?',
+    content: 'Se eliminará completamente del sistema. \n Si elimino por error, esta acción se cancelara en 5 segundos.', 
+    theme: 'modern', //modern, material, bootstrap, supervan
+    autoClose: 'cancel|5000',
+        confirm: function(){
+        	/*action: function() {*/
+          		window.location.href=url;
+        	//}        	
+            /*alert('confirmed');*/
+        },
+        cancel:function(){
+        	
+            //alert('cancelled');
+        }
 
 
 
 
-			</td>
+  });
+}  	
 
-        </tr>    
-	<?php
-    	}
-    ?>
-   <!--</form>-->        
+
+ </script>
+
+
+
+
+
+
 </tbody>      
 </table>
 

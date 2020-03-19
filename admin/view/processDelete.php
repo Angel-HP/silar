@@ -17,7 +17,7 @@ if(isset($_SESSION['user'])){
 	?>
 	      <!-- End Navbar -->
 	<?php
-	require "content/listDeleteUser.php";
+	require "content/processingDelete.php";
 	?>    
 	</div>
 
