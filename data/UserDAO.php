@@ -822,6 +822,17 @@ return true;
 
 }//getTableUsers method
 
+public static function deleteUser($user){
+
+	$userDelete="DELETE FROM `users` WHERE `users`.`id_user`"
+
+
+
+}
+
+
+
+
 
 }//UserDAO Class
 
