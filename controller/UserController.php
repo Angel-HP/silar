@@ -136,7 +136,11 @@ class UserController{
 
 		$obj_user->setId_user($user);
 
+<<<<<<< HEAD
 		return UserDao::deleteUser($obj_user);
+=======
+		return UserDao::delteUser($obj_user);
+>>>>>>> 78893295c085bf22b286e7a64320a7c2a9918884
 
 	}//deleteUser
 

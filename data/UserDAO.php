@@ -824,6 +824,7 @@ return true;
 
 public static function deleteUser($user){
 
+<<<<<<< HEAD
 	//$userDelete="DELETE FROM `users` WHERE `users`.`id_user`";
 	$updatetUser = "UPDATE `users` SET `id_status_user` = :id_status_user WHERE `users`.`id_user` = :id_user";
 
@@ -858,6 +859,9 @@ public static function deleteUser($user){
 			return false;
 		}
 
+=======
+	$userDelete="DELETE FROM `users` WHERE `users`.`id_user`";
+>>>>>>> 78893295c085bf22b286e7a64320a7c2a9918884
 
 
 
