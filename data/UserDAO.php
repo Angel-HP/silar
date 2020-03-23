@@ -824,11 +824,44 @@ return true;
 
 public static function deleteUser($user){
 
-	$userDelete="DELETE FROM `users` WHERE `users`.`id_user`"
+	//$userDelete="DELETE FROM `users` WHERE `users`.`id_user`";
+	$updatetUser = "UPDATE `users` SET `id_status_user` = :id_status_user WHERE `users`.`id_user` = :id_user";
+
+	self::getConnection();
+
+		$result = self::$cnx->prepare($updatetUser);
+
+		$id_user 			= $user->getId_user();	
+		$result->bindParam(":id_user", $id_user);
+
+		$id_status_user 	= 0;
+		$result->bindParam(":id_status_user", $id_status_user);
+
+		if($result->execute()){
+
+			echo '<div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <i class="material-icons">close</i>
+                    </button>
+                    <span>
+                      <b> Listo - </b> Se elimino correctamente el registro...
+                  </div>';
+
+    
+    		echo"<meta HTTP-EQUIV='Refresh' CONTENT='2; URL=index.php'<head/>";
+
+			
+			self::disconnect();
+			
+			return true;
+		}else{
+			return false;
+		}
 
 
 
-}
+
+} //deleteUser method
 
 
 

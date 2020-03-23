@@ -32,11 +32,27 @@
 //if(isset($_REQUEST["eliminar"])){
  
 
- $id = $_GET['u'];
+ $id_user = $_GET['u'];
 
-echo "El usuario a eliminar es: " . $id;
+//echo "El usuario a eliminar es: " . $id;
 
 //invocar a un controlador que llame al objeto para eliminar el registro especifico
+
+if($id_user == 1){
+  echo '<div class="alert alert-warning">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <i class="material-icons">close</i>
+                    </button>
+                    <span>
+                      <b> Alerta! - </b> El usuario es administrador y no puede eliminarse
+                  </div>';
+
+    
+        echo"<meta HTTP-EQUIV='Refresh' CONTENT='2; URL=index.php'<head/>";
+}else{
+
+  UserController::deleteUser($id_user);
+}
 
 
     
