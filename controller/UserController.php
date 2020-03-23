@@ -136,7 +136,7 @@ class UserController{
 
 		$obj_user->setId_user($user);
 
-		return UserDao::userDelete($obj_user);
+		return UserDao::delteUser($obj_user);
 
 	}//deleteUser
 

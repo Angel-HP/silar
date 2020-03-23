@@ -824,7 +824,7 @@ return true;
 
 public static function deleteUser($user){
 
-	$userDelete="DELETE FROM `users` WHERE `users`.`id_user`"
+	$userDelete="DELETE FROM `users` WHERE `users`.`id_user`";
 
 
 
