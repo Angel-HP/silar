@@ -136,14 +136,30 @@ class UserController{
 
 		$obj_user->setId_user($user);
 
-<<<<<<< HEAD
-		return UserDao::deleteUser($obj_user);
-=======
-		return UserDao::delteUser($obj_user);
->>>>>>> 78893295c085bf22b286e7a64320a7c2a9918884
 
+		return UserDao::deleteUser($obj_user);
 	}//deleteUser
 
+public function getTablePass($user){
+		$obj_user = new User();
+
+		$obj_user->setId_user($user);
+
+		return UserDAO::getTablePass($obj_user);
+	}
+
+	public function getPassUser($user){
+
+		$obj_user = new User();
+
+		$obj_user->setId_user($user);
+
+		//echo $obj_user->getId_user();
+
+		return UserDAO::getPassUser($obj_user);
+
+
+	}
 
 
 }//Class UserController

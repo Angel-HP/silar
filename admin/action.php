@@ -46,7 +46,10 @@ if(isset($id)){
 			//Cambiar Pass
 			require_once("view/changePass.php");
 			break;
-		
+		case 32:
+			//Cambiar Pass
+			require_once("view/formPass.php");
+			break;
 		
 		default:
 			/*echo"No hay mas Opciones";

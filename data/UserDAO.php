@@ -824,7 +824,6 @@ return true;
 
 public static function deleteUser($user){
 
-<<<<<<< HEAD
 	//$userDelete="DELETE FROM `users` WHERE `users`.`id_user`";
 	$updatetUser = "UPDATE `users` SET `id_status_user` = :id_status_user WHERE `users`.`id_user` = :id_user";
 
@@ -859,13 +858,137 @@ public static function deleteUser($user){
 			return false;
 		}
 
-=======
-	$userDelete="DELETE FROM `users` WHERE `users`.`id_user`";
->>>>>>> 78893295c085bf22b286e7a64320a7c2a9918884
+
 
 
 
 } //deleteUser method
+
+	public static function getTablePass($user){
+
+	$query = "SELECT id_user as ID, name as Nombre FROM users WHERE id_user <> '1' ORDER BY id_user";
+
+	self::getConnection();
+
+	$result = self::$cnx->prepare($query);
+
+	$result->execute();
+
+	$rows = $result->rowCount();
+	$cols = $result->columnCount();
+
+	if($result->rowCount() > 0){
+
+	?>
+	<div class="table-responsive">
+	<table class="table table-striped"> 
+	<thead>   
+
+
+<?php
+	echo '  
+	<tr>';
+
+	foreach(range(0, $result->columnCount() - 2) as $column_index){
+		$meta[] = $result->getColumnMeta($column_index);
+	}
+
+	/*for ($i=0; $i < $cols - 6; $i++){
+
+		echo '<th style="text-align:center;">' . $meta[$i]["name"] . '</td>';	
+	} */      		
+		echo '<th style="text-align:center;">ID</th>';
+		echo '<th style="text-align:center;">Nombre</th>';
+		
+		echo '<th style="text-align:center;">Acción</th>';
+
+	echo '</tr>
+
+	';
+
+?>
+<!------------------------   Table Head Ends ------------------------->		       
+	</thead>   
+	<tbody>  
+		<!--<form role="form" name="formUser" method="post" action="index.php"> -->
+	<?php
+	//echo '<br />';
+    for($filas = 0; $filas < $rows; $filas++){
+    	$data = $result->fetch();
+
+    	$id = $data['ID'];
+        ?>
+        <tr>
+            <td style="text-align:center;"><?php echo $data['ID']; ?></td>
+            <td style="text-align:center;"><?php echo $data['Nombre']; ?></td>
+           
+            
+            <!-- <td>Boton Editar</td> -->
+		<?php
+
+		$pass = '<a class="btn btn-warning btn-sm" href="action.php?id=32&u='. $data['ID'] .'">Cambiar Password</a>';
+		?>
+		
+			<td style="text-align:center;">
+
+	
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-9">
+					
+					
+					<?php
+
+					echo $pass;
+
+					?>
+				
+				</div>
+			</div>
+		</div>
+
+	
+
+
+
+
+
+
+
+
+			</td>
+
+        </tr>    
+	<?php
+    	}
+    ?>
+  
+
+
+
+
+
+</tbody>      
+</table>
+
+
+</div>         
+
+<?php		
+
+return true;
+
+	}else{
+
+		echo 'Tabla vacia: ' . $exception;
+		return false;
+	}
+
+			
+
+
+		
+}//getTablePass
 
 
 
